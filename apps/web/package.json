@@ -1,0 +1,19 @@
+{
+  "name": "web.otivo.test",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxtjs/tailwindcss": "^6.6.4",
+    "nuxt": "^3.3.2"
+  },
+  "dependencies": {
+    "@nuxtjs/google-fonts": "^3.0.0",
+    "@pinia/nuxt": "^0.4.7"
+  }
+}

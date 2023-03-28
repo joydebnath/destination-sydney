@@ -1,0 +1,8 @@
+{
+    "name": "api.otivo.test",
+    "private": true,
+    "scripts": {
+        "up": "docker-compose up -d",
+        "down": "docker-compose down"
+    }
+}

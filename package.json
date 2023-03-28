@@ -1,0 +1,10 @@
+{
+  "name": "fullstack.otivo.test",
+  "private": true,
+  "scripts": {},
+  "devDependencies": {
+    "@commitlint/cli": "^17.5.0",
+    "@commitlint/config-conventional": "^17.4.4",
+    "husky": "^8.0.3"
+  }
+}

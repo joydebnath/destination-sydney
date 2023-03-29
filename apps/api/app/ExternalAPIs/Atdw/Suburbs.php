@@ -25,6 +25,6 @@ class Suburbs
             'st' => $byState
         ]);
 
-        return collect($res)->first() ?: [];
+        return collect($res)->first()['Suburbs'] ?? [];
     }
 }

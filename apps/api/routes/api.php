@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/areas', [App\Http\Controllers\AreasController::class, 'index']);
 Route::get('/regions', [App\Http\Controllers\RegionsController::class, 'index']);
+Route::get('/suburbs', [App\Http\Controllers\SuburbsController::class, 'index']);

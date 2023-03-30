@@ -11,8 +11,8 @@
 const props = withDefaults(
   defineProps<{
     title?: string;
-    size?: "sm" | "md" | "lg" | "xl" | "base";
-    colorShade?: "500" | "600" | "700" | "800" | "900";
+    size?: "xs" | "sm" | "md" | "lg" | "xl" | "base";
+    colorShade?: "400" | "500" | "600" | "700" | "800" | "900";
     weight?: "thin" | "light" | "normal" | "medium" | "semibold" | "bold";
   }>(),
   {

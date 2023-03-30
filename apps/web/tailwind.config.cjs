@@ -10,7 +10,7 @@ module.exports = {
   important: false,
   safelist: [
     {
-      pattern: /text-(slate|gray|stone)-(500|600|700|800|900)/,
+      pattern: /text-(slate|gray|stone)-(400|500|600|700|800|900)/,
     },
     {
       pattern: /text-(sm|md|lg|xl|base)/,

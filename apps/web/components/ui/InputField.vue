@@ -4,7 +4,7 @@
   >
     <div
       class="text-gray-400 px-1.5 border-r border-r-slate-200"
-      v-if="showLeftIcon()"
+      v-if="!!slots.left"
     >
       <slot name="left" />
     </div>
@@ -12,15 +12,15 @@
     <input
       :value="modelValue"
       @input="$event => $emit('update:modelValue', (<HTMLInputElement>$event?.target)?.value)"
+      @focus="() => $emit('onFocus')"
       type="text"
       :placeholder="placeholder"
       class="bg-gray-50 h-8 px-2 py-1.5 outline-none text-sm"
-      
     />
 
     <div
       class="text-gray-400 px-1.5 border-l border-r-slate-200"
-      v-if="showRightIcon()"
+      v-if="!!slots.right"
     >
       <slot name="right" />
     </div>
@@ -40,9 +40,8 @@ withDefaults(
 
 defineEmits<{
   (e: "update:modelValue", value: string): void;
+  (e: "onFocus"): void;
 }>();
 
 const slots = useSlots();
-const showLeftIcon = () => !!slots.left;
-const showRightIcon = () => !!slots.right;
 </script>

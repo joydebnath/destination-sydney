@@ -11,4 +11,10 @@ export default defineNuxtConfig({
         },
         preload: true
     },
+    ssr: false,
+    runtimeConfig: {
+        public: {
+            apiUrl: process.env.API_URL,
+        }
+    }
 })

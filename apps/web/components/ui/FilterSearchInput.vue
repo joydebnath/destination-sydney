@@ -1,11 +1,9 @@
 <template>
-  <div>
-    <input
-      type="text"
-      :placeholder="props.placeholder"
-      class="bg-gray-50 h-8 px-2 py-1.5 border border-gray-100 rounded-md outline-none text-sm"
-    />
-  </div>
+  <UiInputField v-model="searchText" :placeholder="props.placeholder">
+    <template #left>
+      <IconSearch class="w-5 h-5" />
+    </template>
+  </UiInputField>
 </template>
 
 <script lang="ts" setup>
@@ -17,4 +15,10 @@ const props = withDefaults(
     placeholder: "Search",
   }
 );
+
+const searchText = ref("");
+
+watchEffect(() => {
+  console.log(searchText.value);
+});
 </script>

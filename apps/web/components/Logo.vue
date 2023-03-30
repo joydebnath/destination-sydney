@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-row justify-between items-center px-2 space-x-1.5">
-    <IconsSydney
+    <IconOperaHouse
       class="bg-gradient-to-r from-[#ff0f7b] to-[#f89b29] text-pink-50 h-9 w-auto px-1 rounded-lg"
     />
     <span

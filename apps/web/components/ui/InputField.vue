@@ -10,11 +10,11 @@
     </div>
 
     <input
-      :value="modelValue"
+      :value="props.modelValue"
       @input="$event => $emit('update:modelValue', (<HTMLInputElement>$event?.target)?.value)"
       @focus="() => $emit('onFocus')"
       type="text"
-      :placeholder="placeholder"
+      :placeholder="props.placeholder"
       class="bg-gray-50 h-8 px-2 py-1.5 outline-none text-sm"
     />
 
@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts" setup>
-withDefaults(
+const props = withDefaults(
   defineProps<{
     modelValue: string;
     placeholder?: string;

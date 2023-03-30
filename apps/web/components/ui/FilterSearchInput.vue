@@ -2,7 +2,7 @@
   <div class="relative w-full" v-click-away="onClickAway">
     <UiInputField
       v-model="searchText"
-      :placeholder="placeholder"
+      :placeholder="props.placeholder"
       class="z-10 relative"
       @on-focus="handleFocusInputField"
     >
@@ -33,7 +33,7 @@
 <script lang="ts" setup>
 import { directive as vClickAway } from "vue3-click-away";
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     placeholder?: string;
   }>(),

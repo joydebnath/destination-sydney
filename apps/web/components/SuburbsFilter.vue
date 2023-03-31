@@ -6,8 +6,9 @@
     <template #default>
       <UiFilterSearchInput
         v-if="!(pending || error)"
-        placeholder="city/suburbs"
+        placeholder="Search city/suburbs"
         :data="(suburbs?.data || []) as Array<IFilterOption>"
+        @on-filter-change="handleFilterChange"
       />
       <UiText
         v-if="pending"
@@ -28,7 +29,26 @@
 </template>
 
 <script lang="ts" setup>
-import { IFilterOption } from "~~/contracts/IFilterOption";
+import { IFilter, IFilterOption } from "~~/contracts/IFilterOption";
 import { ISuburb } from "~~/contracts/ISuburb";
-const { data: suburbs, pending, error } = useApiFetch<ISuburb>("/api/suburbs");
+
+const emit = defineEmits<{
+  (event: "onSuburbsChange", payload: IFilter): void;
+}>();
+
+const {
+  data: suburbs,
+  pending,
+  error,
+} = useApiFetch<ISuburb>("/api/locations", {
+  query: {
+    filter: "suburb",
+  },
+});
+
+const handleFilterChange = (filter: Array<IFilterOption>) => {
+  emit("onSuburbsChange", {
+    suburbs: filter,
+  });
+};
 </script>

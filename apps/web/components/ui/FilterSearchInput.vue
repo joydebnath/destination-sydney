@@ -38,9 +38,12 @@ const props = withDefaults(
   }
 );
 
+const emit = defineEmits<{
+  (event: "onFilterChange", filerOptions: Array<IFilterOption>): void;
+}>();
+
 const searchText = ref("");
 const showDropdown = ref(false);
-
 const selectedOptions = ref<Array<IFilterOption>>([]);
 
 const options = computed(() => {
@@ -54,6 +57,16 @@ const options = computed(() => {
       selected: false,
     };
   });
+});
+
+const computedOptions = computed(() => {
+  if (!searchText.value) {
+    return options.value;
+  }
+
+  return options.value.filter((option) =>
+    option.name.toLowerCase().includes(searchText.value.toLowerCase())
+  );
 });
 
 const handleFocusInputField = () => {
@@ -85,17 +98,9 @@ const handleSelectOption = (option: any) => {
   options.value[index].selected = true;
   showDropdown.value = false;
   selectedOptions.value.push(option);
+
+  emit("onFilterChange", selectedOptions.value);
 };
-
-const computedOptions = computed(() => {
-  if (!searchText.value) {
-    return options.value;
-  }
-
-  return options.value.filter((option) =>
-    option.name.toLowerCase().includes(searchText.value.toLowerCase())
-  );
-});
 
 const handleRemoveOption = (option: any) => {
   const index = selectedOptions.value.findIndex(
@@ -112,5 +117,7 @@ const handleRemoveOption = (option: any) => {
 
   options.value[optionIndex].selected = false;
   selectedOptions.value.splice(index, 1);
+
+  emit("onFilterChange", selectedOptions.value);
 };
 </script>

@@ -8,6 +8,7 @@
         v-if="!(pending || error)"
         placeholder="Search areas"
         :data="(areas?.data || []) as Array<IFilterOption>"
+        @on-filter-change="handleFilterChange"
       />
       <UiText
         v-if="pending"
@@ -29,6 +30,25 @@
 
 <script lang="ts" setup>
 import { IArea } from "~~/contracts/IArea";
-import { IFilterOption } from "~~/contracts/IFilterOption";
-const { data: areas, pending, error } = useApiFetch<IArea>("/api/areas");
+import { IFilter, IFilterOption } from "~~/contracts/IFilterOption";
+
+const emit = defineEmits<{
+  (event: "onAreasChange", payload: IFilter): void;
+}>();
+
+const {
+  data: areas,
+  pending,
+  error,
+} = useApiFetch<IArea>("/api/locations", {
+  query: {
+    filter: "area",
+  },
+});
+
+const handleFilterChange = (filter: Array<IFilterOption>) => {
+  emit("onAreasChange", {
+    areas: filter,
+  });
+};
 </script>

@@ -3,3 +3,7 @@ export interface IFilterOption {
     name: string;
     selected?: boolean;
 }
+
+export interface IFilter {
+    [key: string]: Array<IFilterOption>;
+}

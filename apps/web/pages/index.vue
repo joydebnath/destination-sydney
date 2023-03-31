@@ -23,9 +23,20 @@
               color-shade="700"
               weight="semibold"
             />
-            <AreasFilter />
             <RegionsFilter />
-            <SuburbsFilter />
+            <AreasFilter @on-areas-change="handleFilterChange" />
+            <SuburbsFilter @on-suburbs-change="handleFilterChange" />
+            <br />
+            <UiButton
+              class="w-full !bg-slate-500"
+              @on-click="handleApplyFilters"
+            >
+              <span
+                class="text-white font-bold font-inter tracking-wide uppercase text-xs"
+              >
+                Apply filters
+              </span>
+            </UiButton>
           </div>
         </div>
         <div class="col-span-5">
@@ -35,3 +46,18 @@
     </section>
   </section>
 </template>
+
+<script lang="ts" setup>
+import { IFilter } from "~~/contracts/IFilterOption";
+import { useFiltersStore } from "~~/store/filters";
+
+const store = useFiltersStore();
+
+const handleFilterChange = (pauload: IFilter) => {
+  store.addToFilterList(pauload);
+};
+
+const handleApplyFilters = () => {
+  console.log("apply filters", store.filters);
+};
+</script>

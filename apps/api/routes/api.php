@@ -22,3 +22,4 @@ Route::get('/areas', [App\Http\Controllers\AreasController::class, 'index']);
 Route::get('/regions', [App\Http\Controllers\RegionsController::class, 'index']);
 Route::get('/suburbs', [App\Http\Controllers\SuburbsController::class, 'index']);
 Route::get('/locations', [App\Http\Controllers\LocationController::class, 'index']);
+Route::resource('/products', App\Http\Controllers\ProductsController::class)->only(['index', 'show']);

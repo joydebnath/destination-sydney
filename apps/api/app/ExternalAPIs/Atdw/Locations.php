@@ -7,11 +7,8 @@ use Throwable;
 
 class Locations
 {
-    private readonly AtlasAPI $atlasAPI;
-
-    public function __construct()
+    public function __construct(private readonly AtlasAPI $atlasAPI)
     {
-        $this->atlasAPI = new AtlasAPI();
     }
 
     /**

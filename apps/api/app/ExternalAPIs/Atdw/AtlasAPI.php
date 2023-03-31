@@ -9,13 +9,8 @@ use Throwable;
 
 class AtlasAPI
 {
-    private readonly Client $guzzleClient;
-
-    public function __construct()
+    public function __construct(private readonly Client $guzzleClient)
     {
-        $this->guzzleClient = new Client([
-            'base_uri' => config('atlas.url'),
-        ]);
     }
 
 

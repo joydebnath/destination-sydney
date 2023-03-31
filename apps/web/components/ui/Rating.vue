@@ -27,20 +27,18 @@
 
 <script lang="ts" setup>
 const props = defineProps<{
-  rating: string;
+  rating: number;
 }>();
 
-const rating = computed(() => Number(props.rating).toFixed(1));
+const rating = computed(() => props.rating.toFixed(1));
 
 const stars = computed(() => {
-  const rating = Number(props.rating);
-
-  const full = Math.floor(rating);
+  const full = Math.floor(props.rating);
   const fullStars = Array.from({ length: full }, (_, i) => "full");
 
-  const half = rating % 1 < 1 ? ["half"] : [];
+  const half = props.rating % 1 < 1 ? ["half"] : [];
 
-  const empty = 5 - Math.ceil(rating);
+  const empty = 5 - Math.ceil(props.rating);
   const emptyStars = Array.from({ length: empty }, (_, i) => "empty");
 
   return [...fullStars, ...half, ...emptyStars];

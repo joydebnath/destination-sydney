@@ -25,5 +25,7 @@ export const useFiltersStore = defineStore({
     getters: {
         filters: state => state.filtersList,
         regionName: state => state.region,
+        areas: state => state.filtersList.areas.map((area) => area.name).join(","),
+        suburbs: state => state.filtersList.suburbs.map((suburb) => suburb.name).join(",")
     },
 })

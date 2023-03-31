@@ -40,7 +40,7 @@
           </div>
         </div>
         <div class="col-span-5">
-          <AccomodationCard />
+          <Accommodations />
         </div>
       </div>
     </section>
@@ -49,15 +49,26 @@
 
 <script lang="ts" setup>
 import { IFilter } from "~~/contracts/IFilterOption";
+import { useAccommodationsStore } from "~~/store/accommodation";
 import { useFiltersStore } from "~~/store/filters";
 
 const store = useFiltersStore();
+const accommStore = useAccommodationsStore();
 
 const handleFilterChange = (pauload: IFilter) => {
   store.addToFilterList(pauload);
 };
 
 const handleApplyFilters = () => {
-  console.log("apply filters", store.filters);
+  const query = <Record<string, string>>{};
+  if (store.areas) {
+    query["area"] = store.areas;
+  }
+
+  if (store.suburbs) {
+    query["suburb"] = store.suburbs;
+  }
+
+  accommStore.loadAccommodations(query);
 };
 </script>

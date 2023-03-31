@@ -18,5 +18,8 @@ module.exports = {
     {
       pattern: /font-(thin|light|normal|medium|semibold|bold)/,
     },
+    {
+      pattern: /bg-(slate|gray|stone)-(50|100|400|500|600|700|800|900)/,
+    },
   ],
 };

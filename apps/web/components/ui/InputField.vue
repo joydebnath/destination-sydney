@@ -39,8 +39,8 @@ const props = withDefaults(
 );
 
 defineEmits<{
-  (e: "update:modelValue", value: string): void;
-  (e: "onFocus"): void;
+  (event: "update:modelValue", value: string): void;
+  (event: "onFocus"): void;
 }>();
 
 const slots = useSlots();

@@ -1,42 +1,55 @@
-# Nuxt 3 Minimal Starter
+# Destination Sydney
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This is a web application built with Laravel and Nuxt 3, which serves as the backend and frontend respectively.
+Requirements
+
+- PHP >= 8.1
+- Composer
+- Node.js >= 16.x
+- NPM
+
+## Installation
+
+1. Clone the repository or download the zip file.
+2. Navigate to the root directory of the project and run `npm run api:install` to install PHP dependencies.
+3. Rename .`env.example` file to `.env` and update credentials if needed.
+4. Set/Update **ATLAS_API_KEY** environment variable in `.env` file.
+5. Run `npm run api:key` to generate a unique application key.
+6. You don't need to run migration as database is not required.
+7. Run `npm run api:up` to start the backend servers.
+8. Run `npm run api:down` to shutdown the backend servers
+9. Run `npm run web:install` to install frontend dependencies.
+10. Run `npm run web:dev` to compile frontend assets.
+
 
 ## Setup
 
 Make sure to install the dependencies:
 
 ```bash
-# yarn
-yarn install
+# install backend dependencies
+npm run api:install
 
-# npm
-npm install
+# generate backend unique key
+npm run api:key
 
-# pnpm
-pnpm install
+# install frontend dependencies
+npm run web:install
 ```
 
 ## Development Server
 
-Start the development server on http://localhost:3000
+Start the web server on `http://localhost:3000` and the api server on `http://localhost:8081`
 
 ```bash
-npm run dev
+# start web server
+npm run web:dev
+
+# start api server
+npm run api:up
+
+# shutdown api server
+npm run api:down
 ```
 
-## Production
 
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

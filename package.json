@@ -1,7 +1,16 @@
 {
   "name": "fullstack.otivo.test",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "api:install": "cd apps/api && composer install",
+    "api:key": "cd apps/api && php artisan key:generate",
+    "api:up" : "cd apps/api && docker-compose up -d",
+    "api:down" : "cd apps/api && docker-compose down",
+    "api:test" : "cd apps/api && ./vendor/bin/pest",
+    "web:install": "cd apps/web && npm install",
+    "web:dev" : "cd apps/web && npm run dev",
+    "web:build" : "cd apps/web && npm run build"
+  },
   "devDependencies": {
     "@commitlint/cli": "^17.5.0",
     "@commitlint/config-conventional": "^17.4.4",

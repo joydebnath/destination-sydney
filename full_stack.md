@@ -23,7 +23,7 @@ A minimum of two filters are required:
 * Data can be called using the methods defined at
   [ATDW Atlas API](https://developer.atdw.com.au/ATLAS/API/ATDWO-api.html).
   All documentation can be found via this link.
-* For development the API key is: `123456789101112`
+* For development the API key is: `12345678910XXXX`
 
 ## Requirements
 * The service must be written in PHP 8.1 or higher.
